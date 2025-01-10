@@ -53,11 +53,19 @@ class CryptoController {
           .json({ error: "No data found for the specified coin" });
       }
 
+      if (prices.length === 1) {
+        return res.json({ deviation: 0 });
+      }
+
       const priceValues = prices.map((p) => p.priceUSD);
       const deviation = calculateStandardDeviation(priceValues);
 
+      // Handle very small deviations that might occur due to floating-point precision
+      const roundedDeviation =
+        deviation < 0.01 ? 0 : parseFloat(deviation.toFixed(2));
+
       return res.json({
-        deviation: parseFloat(deviation.toFixed(2)),
+        deviation: roundedDeviation,
       });
     } catch (error) {
       console.error("Error in getDeviation:", error);
