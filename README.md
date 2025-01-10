@@ -3,7 +3,7 @@
 A production-grade Node.js application that tracks and analyzes cryptocurrency prices using the CoinGecko API. The service provides real-time price statistics and price deviation analysis for Bitcoin, Ethereum, and Matic.
 
 ## 🌐 Deployed API
-Base URL: `` 
+Base URL: `https://koin-x-57a6.onrender.com` 
 
 ## ✨ Features
 
@@ -119,11 +119,4 @@ The application uses MongoDB with the following schema for cryptocurrency data:
   change24h: Number,
   timestamp: Date
 }
-```
-
-## 🧪 Testing
-
-Run the test suite:
-```bash
-npm test
 ```
